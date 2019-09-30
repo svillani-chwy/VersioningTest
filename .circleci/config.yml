@@ -1,0 +1,81 @@
+version: 2.1
+
+orbs:
+  aws-cli: circleci/aws-cli@0.1.16
+  aws-assume-role: holdaraffle/aws-assume-role@0.0.10
+  aws-ecr: circleci/aws-ecr@4.0.1
+  sam: frameio/sam@0.6.3
+
+jobs:
+  build-and-test-releasecart:
+    machine:
+      image: circleci/classic:latest
+    steps:
+      - restore_cache:
+          keys:
+            - releasecart-cache-v1-{{ .Revision }}-
+      - checkout
+      - run:
+          name: install sam cli
+          command: |
+            pip install --upgrade pip
+            pip install aws-sam-cli
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - project/*
+      - run:
+          name: build and test releasecart
+          command: |
+            ./gradlew jar
+      - run:
+          name: tag version
+          command: |
+            version=$(./gradlew -q printVersion | tail -n 1)
+            if [[ $version = *SNAPSHOT ]] && { [[ "$CIRCLE_BRANCH" = "master" ]] || [[ "$CIRCLE_BRANCH" = "develop" ]]; }; then
+              ./gradlew tag -Prelease -PbumpComponent=patch
+            fi
+            ./gradlew -q printVersion | tail -n 1 > version.txt
+            git remote -v
+            git remote add otherremote https://$GRADLE_RELEASE_GITHUB_TOKEN@github.com/Chewy-Inc/orcs.git
+            git remote set-url otherremote https://$GRADLE_RELEASE_GITHUB_TOKEN@github.com/Chewy-Inc/orcs.git
+            git remote -v
+            git push -v --tags otherremote
+            git remote remove otherremote
+            git remote -v
+      - run:
+          name: Copy artifact to s3 bucket $AWS_DEV_ACCOUNT_ID-sam-deployment-artifacts
+          command: |
+            ls -la
+            SAM_DEPLOYMENT_BUCKET="$AWS_DEV_ACCOUNT_ID-sam-deployment-artifacts"
+            build_version=1.0-SNAPSHOT
+            aws s3 cp build/libs/ReleaseLockedOrders-$build_version.jar s3://$SAM_DEPLOYMENT_BUCKET/artifacts/ReleaseLockedOrders-$build_version.jar
+      - run:
+          name: Sam package
+          command: |
+            SAM_DEPLOYMENT_BUCKET="$AWS_DEV_ACCOUNT_ID-sam-deployment-artifacts"
+            echo "SAM is now packaging..."
+            sam package     --output-template-file packaged.yaml     --s3-bucket $SAM_DEPLOYMENT_BUCKET
+      - save_cache:
+          key: releasecart-cache-v1-{{ .Revision }}-{{ .BuildNum }}
+          paths:
+            - ~/.aws
+            - ./build/libs
+            - ~/project
+          force: yes
+
+
+workflows:
+  version: 2.1
+  build-deploy:
+    jobs:
+      - build-and-test-releasecart:
+          context: artifactory-cloud
+          requires:
+            - aws-cli
+          filters:  # using regex filters requires the entire branch to match
+            branches:
+              only:
+                - master
+                - /feature-.*/
+                - circle
