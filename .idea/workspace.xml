@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="40eb1d4d-ae85-462b-93dd-1e739464b965" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chewy/ReleaseLockedOrders/ReleaseLockedOrdersLambda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chewy/ReleaseLockedOrders/ReleaseLockedOrdersLambda.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,12 +25,6 @@
         <projects_view />
       </state>
     </system>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>jar</find>
-      <find>Prelease</find>
-    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
