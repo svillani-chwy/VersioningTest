@@ -33,7 +33,7 @@ jobs:
           command: |
             version=$(./gradlew -q printVersion | tail -n 1)
             if [[ $version = *SNAPSHOT ]] && { [[ "$CIRCLE_BRANCH" = "master" ]] || [[ "$CIRCLE_BRANCH" = "develop" ]]; }; then
-              ./gradlew tag -Prelease -PbumpComponent=patch
+              ./gradlew build tag -Prelease -PbumpComponent=patch
             fi
             ./gradlew -q printVersion | tail -n 1 > version.txt
             git remote -v
