@@ -48,7 +48,7 @@ dependencies {
 
 tag {
     message {
-        "version: ${version}"
+        "version: test"
     }
 }
 
