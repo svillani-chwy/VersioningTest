@@ -52,13 +52,18 @@ jar {
     }
 }
 
-//tag {
-//    message {
-//        """
-//${project.description} Release
-//Version: ${project.version}
-//"""
-//    }
-//
-//
-//}
+
+
+
+
+
+tag {
+    message {
+        """
+${project.description} Release
+Version: ${project.version}
+"""
+    }
+
+
+}
