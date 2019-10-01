@@ -42,6 +42,7 @@ dependencies {
 
     compile group: 'org.postgresql', name: 'postgresql', version: '42.2.5'
     compile group: 'com.zaxxer', name: 'HikariCP', version: '3.4.1'
+ //   compile group: 'gradle.plugin.javamuc', name: 'gradle-semantic-build-versioning', version: '4.1.1'
 
 }
 
