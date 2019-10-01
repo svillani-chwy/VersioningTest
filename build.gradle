@@ -53,17 +53,8 @@ jar {
 }
 
 
-
-
-
-
 tag {
     message {
-        """
-${project.description} Release
-Version: ${project.version}
-"""
+        "version: ${version}"
     }
-
-
 }
