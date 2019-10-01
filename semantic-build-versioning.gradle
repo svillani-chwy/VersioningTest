@@ -1,11 +1,6 @@
-autobump {
-    majorPattern = ~/\[major\]/
-    minorPattern = ~/\[minor\]/
-    patchPattern = ~/\[patch\]/
-    newPreReleasePattern = ~/\[pre-release\]/
-    promoteToReleasePattern = ~/\[release\]/
-}
-
+autobump
+tagPrefix = 'v'
+startingVersion = '0.0.0'
 preRelease {
     startingVersion = 'rc-0'
     pattern = /rc/
