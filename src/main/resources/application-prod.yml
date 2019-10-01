@@ -1,0 +1,9 @@
+aws:
+  secrets:
+    dbSecretName: cart-batch/secret/us-east-1/production
+    region: us-east-1
+
+cart:
+  apiKey: apiKey
+  cartStoreBasePath: https://cart.chewy.cloud
+  unlockCartsURL: /api/v1/carts/unlock

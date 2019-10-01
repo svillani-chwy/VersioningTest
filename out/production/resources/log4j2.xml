@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="30">
+
+    <Appenders>
+        <Console name="CONSOLE" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="%d [%t] %-5level %logger{36} - [class=&quot;%c&quot; rid=&quot;%X{rid}&quot; dd_trace_id=&quot;%X{dd.trace_id}&quot; dd_span_id=&quot;%X{dd.span_id}&quot;]  %msg%n"/>
+        </Console>
+
+        <Async name="ASYNC-CONSOLE">
+            <AppenderRef ref="CONSOLE"/>
+        </Async>
+
+    </Appenders>
+
+    <Loggers>
+        <Root level="INFO">
+            <AppenderRef ref="ASYNC-CONSOLE"/>
+        </Root>
+    </Loggers>
+</Configuration>
