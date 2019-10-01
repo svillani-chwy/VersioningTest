@@ -27,13 +27,12 @@ jobs:
       - run:
           name: build and test tag
           command: |
-            version=$(./gradlew -q printVersion | tail -n 1)
+            ./gradlew -q printVersion | tail -n 1 > version.txt
             if { [[ "$CIRCLE_BRANCH" = "master" ]]; }; then
               ./gradlew clean build tag -Prelease -PbumpComponent=patch
             else
               ./gradlew clean build
             fi
-            ./gradlew -q printVersion | tail -n 1 > version.txt
             git remote -v
             git remote add otherremote https://github.com/svillaniChewy/VersioningTest.git
             git remote set-url otherremote https://github.com/svillaniChewy/VersioningTest.git
