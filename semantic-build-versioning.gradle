@@ -1,15 +1,5 @@
 autobump {
-    majorPattern = ~/\[major\]/
-    minorPattern = ~/\[minor\]/
-    patchPattern = ~/\[patch\]/
-    newPreReleasePattern = ~/\[pre-release\]/
-    promoteToReleasePattern = ~/\[release\]/
-}
-
-preRelease {
-    startingVersion = 'rc-0'
-    pattern = /rc/
-    bump = {
-        "rc-${((it - ~/^rc-/) as int) + 1}"
-    }
+    majorPattern = ~/(?m)^\[major\]$/
+    minorPattern = ~/(?m)^\[minor\]$/
+    patchPattern = ~/(?m)^\[patch\]$/
 }
