@@ -1,9 +1,9 @@
 autobump {
-    majorPattern = ~/\[major\]/
-    minorPattern = ~/\[minor\]/
-    patchPattern = ~/\[patch\]/
-    newPreReleasePattern = ~/\[pre-release\]/
-    promoteToReleasePattern = ~/\[release\]/
+    majorPattern = ~/(?m)^\[bump-major\]$/
+    minorPattern = ~/(?m)^\[bump-minor\]$/
+    patchPattern = ~/(?m)^\[bump-patch\]$/
+    newPreReleasePattern = ~/(?m)^\[make-new-pre-release\]$/
+    promoteToReleasePattern = ~/(?m)^\[promote-to-release\]$/
 }
 
 preRelease {
