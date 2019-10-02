@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="927e688b-444e-4e64-9c16-42c360deb480" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
     <ignored path="$PROJECT_DIR$/out/" />
+=======
+    <list default="true" id="40eb1d4d-ae85-462b-93dd-1e739464b965" name="Default Changelist" comment="" />
+>>>>>>> 06ba730e9050472887346e0ee98c311ef0f2b3f2
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +34,7 @@
       </state>
     </system>
   </component>
+<<<<<<< HEAD
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
@@ -58,6 +63,8 @@
       <find>Prelease</find>
     </findStrings>
   </component>
+=======
+>>>>>>> 06ba730e9050472887346e0ee98c311ef0f2b3f2
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
