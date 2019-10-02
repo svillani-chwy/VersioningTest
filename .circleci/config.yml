@@ -33,9 +33,9 @@ jobs:
           command: |
             version=$(./gradlew -q printVersion | tail -n 1)
             if [[ $version = *SNAPSHOT ]] && { [[ "$CIRCLE_BRANCH" = "master" ]] || [[ "$CIRCLE_BRANCH" = "develop" ]]; }; then
-              ./gradlew tag -Prelease -PbumpComponent=patch
+              ./gradlew build tag -Prelease -PbumpComponent=patch
             fi
-            ./gradlew -q printVersion | tail -n 1 > version.txt
+              ./gradlew -q printVersion | tail -n 1 > version.txt
             git remote -v
             git remote add otherremote https://$GRADLE_RELEASE_GITHUB_TOKEN@github.com/Chewy-Inc/orcs.git
             git remote set-url otherremote https://$GRADLE_RELEASE_GITHUB_TOKEN@github.com/Chewy-Inc/orcs.git
