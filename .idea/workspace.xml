@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <list default="true" id="927e688b-444e-4e64-9c16-42c360deb480" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -10,6 +11,12 @@
 =======
     <list default="true" id="40eb1d4d-ae85-462b-93dd-1e739464b965" name="Default Changelist" comment="" />
 >>>>>>> 06ba730e9050472887346e0ee98c311ef0f2b3f2
+=======
+    <list default="true" id="40eb1d4d-ae85-462b-93dd-1e739464b965" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/semantic-build-versioning.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/semantic-build-versioning.gradle" afterDir="false" />
+    </list>
+>>>>>>> 4aa5d5f53658eafb7461920e9827239c0df578dc
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
